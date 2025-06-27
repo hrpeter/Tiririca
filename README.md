@@ -1,97 +1,83 @@
-# Tiririca
-Sistema de autoatendimento em Java para lancherias e restaurantes, com estrutura orientada a objetos, cardápio dinâmico, múltiplos pedidos por cliente e acompanhamento de status.
-# 🍔 Sistema de Quiosque de Autoatendimento
+# 🍔 Quiosque de Autoatendimento - Projeto Java
 
-Este projeto simula um sistema de autoatendimento para lancherias e restaurantes, onde o cliente pode visualizar o cardápio, adicionar itens, ver o resumo do pedido e acompanhar o status. O estabelecimento pode gerar pedidos e atualizar seu status conforme o andamento.
+Este projeto implementa um sistema de quiosque para autoatendimento em restaurantes e lanchonetes. O sistema permite visualizar o cardápio, adicionar itens ao pedido, personalizar produtos, acompanhar pedidos, editar itens e gerenciar pedidos pela visão do gerente.
 
 ---
 
-## 📚 Objetivos
+## 👨🏼‍💻 Tecnologias e Estrutura
 
-- Aplicar os princípios da Programação Orientada a Objetos (POO) com Java.
-- Simular o processo de pedido e atendimento em um quiosque digital.
-- Utilizar herança, polimorfismo, interfaces, classes abstratas e coleções (`ArrayList`).
+- Linguagem: Java (versão 8+ recomendada)
+- GUI: Swing
+- Estrutura orientada a objetos com pacotes separados (`core`, `item`, `comida`, `gui`, `util`)
+- Serialização para salvar/carregar cardápio (classe `Repositorio`)
+
+---
+
+## Como executar
+
+### Pré-requisitos
+
+- Java JDK instalado (versão 8 ou superior)
+- IDE recomendada: IntelliJ IDEA, Eclipse, NetBeans ou similar
+- Configuração do projeto para usar o JDK correto
+
+### Passos para execução
+
+1. Clone ou baixe o projeto para sua máquina.
+
+2. Abra o projeto em sua IDE favorita.
+
+3. Compile todos os pacotes.
+
+4. Execute a classe principal `app.App`, que chama a interface gráfica:
+
+```bash
+java -cp bin app.App
+```
+
+ou execute diretamente a classe app.App na IDE.
+
+5. A interface gráfica do quiosque será aberta.
+
+---
+
+## 💻 Uso da aplicação
+- Aba Cardápio: clique nos botões para adicionar itens ao pedido atual.
+- Aba Personalizar: selecione ingredientes e personalizações para o último item adicionado que aceitar customização.
+- Aba Resumo: visualize o resumo do pedido atual; finalize o pedido para criar um novo.
+- Aba Pedidos: veja todos os pedidos feitos pelo cliente.
+- Aba Editar Pedido: visualize e remova itens do pedido atual.
+- Aba Gerente: visualize todos os pedidos do estabelecimento e atualize o status do último pedido.
+
+---
+
+## 📝 Testes manuais sugeridos
+- Adicione diferentes tipos de itens ao pedido e verifique se aparecem no resumo.
+- Teste adicionar ingredientes e personalizações apenas em itens que aceitam (ex: lanches, pizzas).
+- Tente remover itens pelo painel "Editar Pedido" e observe o efeito.
+- Finalize um pedido e confirme que um novo pedido é iniciado.
+- Na aba "Pedidos", confira se os pedidos do cliente aparecem corretamente.
+- Na aba "Gerente", atualize status dos pedidos e verifique a sequência (PENDENTE → EM_PREPARO → PRONTO → ENTREGUE → FINALIZADO).
+- Tente adicionar ingredientes em um item que não aceita e confira a mensagem de erro.
+- Teste a atualização da lista de pedidos e do resumo via botão.
 
 ---
 
 ## 📦 Estrutura de Pacotes
-
-- `app` → Classe principal com o método `main()` (ponto de entrada).
-- `core` → Classes principais do sistema: `Cliente`, `Pedido`, `Estabelecimento`.
-- `comida` → Itens do cardápio: `Lanche`, `Bebida`, `Sobremesa`.
-- `item` → Classe `Cardapio`, responsável por organizar os itens disponíveis.
-- `util` → Enumeração `StatusPedido` com os estados possíveis dos pedidos.
-
----
-
-## 🚀 Como Executar
-
-### ✅ Pré-requisitos
-
-- Java JDK 11 ou superior instalado
-- Editor de código (como IntelliJ, Eclipse ou VSCode)
-
-### ▶️ Etapas para executar
-
-1. Faça o clone ou o download do projeto.
-2. Garanta que as pastas e arquivos `.java` estão organizados conforme os pacotes indicados.
-3. Compile o projeto a partir do terminal com:
-
-```bash
-javac app/App.java
-```
+- `app`: classe principal App
+- `gui`: interface gráfica do quiosque (QuiosqueGUI)
+- `core`: classes centrais do negócio (Cliente, Pedido, Estabelecimento, Cardapio, StatusPedido)
+- `item`: classes relacionadas a itens, ingredientes e personalizações (Item, Ingrediente, Personalizacao, interface GerenciadorPedidos)
+- `comida`: subclasses de Item para tipos específicos (Pizza, Bebida, Lanche, Bolo, Sorvete, Sobremesa)
+- `util`: utilitários para salvar e carregar dados (Repositorio)
 
 ---
 
-## 📋 Como Utilizar
-
-Durante a execução, o sistema exibirá o seguinte menu:
-
-```
-===== MENU =====
-1. Ver cardápio
-2. Adicionar item ao pedido
-3. Ver resumo do pedido
-4. Ver status do pedido
-0. Finalizar pedido
-```
-
-Você pode realizar um ou mais pedidos na mesma sessão.  
-Ao final, todos os pedidos realizados pelo cliente serão listados.
+## Considerações finais
+Este projeto é uma base funcional para um sistema de autoatendimento com interface simples. Pode ser expandido com persistência mais robusta, integração com banco de dados, interface web, entre outras melhorias.
 
 ---
 
-## 🧪 Testes Manuais
+## 👨‍💻 Autores
 
-- Verifique se os itens do cardápio são exibidos corretamente.
-- Adicione diferentes itens ao pedido e verifique se o resumo reflete corretamente os valores.
-- Teste o status do pedido e verifique se ele muda para `PRONTO` após finalização.
-- Faça múltiplos pedidos em sequência e confirme se todos são listados no histórico do cliente.
-
----
-
-## 🛠 Tecnologias Utilizadas
-
-- Java
-- Coleções (`ArrayList`)
-- Programação Orientada a Objetos:
-  - Herança
-  - Polimorfismo
-  - Encapsulamento
-- Organização por pacotes
-
----
-
-## 💡 Possíveis Melhorias Futuras
-
-- Interface gráfica com Swing ou JavaFX
-- Suporte a pagamentos simulados
-- Login de funcionários para alterar pedidos
-- Cancelamento e edição de pedidos em andamento
-- Integração com banco de dados para persistência
-
----
-
-## 👨‍💻 Autor
-
-Desenvolvido por **Herik Peter** como parte do projeto final da disciplina de **Programação Orientada a Objetos** – Universidade Feevale.
+Desenvolvido por **Herik Rafael Peter da Silva e Lucas Matielli Lorenzon** como parte do projeto final da disciplina de **Programação 1** – Universidade Feevale.
