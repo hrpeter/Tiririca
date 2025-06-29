@@ -1,0 +1,50 @@
+# Compiled Java class files
+*.class
+
+# Logs
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Build outputs
+/bin/
+/build/
+/out/
+
+# Package Files (JAR, WAR, EAR)
+*.jar
+*.war
+*.ear
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+# VS Code settings
+.vscode/
+
+# Eclipse or IntelliJ (caso alguém abra por outra IDE)
+.project
+.classpath
+.settings/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup or temp files
+*.swp
+*.bak
+*.tmp
+*.~*
+
+# User-specific or sensitive files
+*.user
+*.prefs
+*.env
