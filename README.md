@@ -74,7 +74,7 @@ ou execute diretamente a classe app.App na IDE.
 ---
 
 ## Considerações finais
-Este projeto é uma base funcional para um sistema de autoatendimento com interface simples. Pode ser expandido com persistência mais robusta, integração com banco de dados, interface web, entre outras melhorias.
+Este projeto é uma base funcional para um sistema de autoatendimento com interface simples. Pode ser expandido com persistência mais robusta, integração com banco de dados, interface mais robusta e completa (responsiva e/ou adaptada para telas touch), integração com sistema de pagamentos entre outras melhorias.
 
 ---
 
